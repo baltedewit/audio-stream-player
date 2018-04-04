@@ -1,0 +1,5 @@
+{
+    "errorWebhook": "https://hooks.slack.com/services/REDACTED",
+    "fallback": "http://player.station.com/live",
+    "loudness": -23
+}
