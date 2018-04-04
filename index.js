@@ -8,7 +8,7 @@ const decoder = new StringDecoder('utf8');
 const server = new net.Server(connectionListener)
 
 let ffplay;
-let stream = config.fallback;
+let stream;
 let retries = 0;
 let timeOut;
 let lastDate = Date.now();
@@ -30,6 +30,7 @@ function connectionListener(socket) {
             stream = recv[1] || config.fallback
             restart(0)
         } else if (recv[0].toLowerCase() === 'stop') {
+            stream = undefined
             if (ffplay)
                 ffplay.close();
         }
